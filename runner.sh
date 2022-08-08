@@ -25,7 +25,7 @@ do
       cd ..
 
       # Run script, redirect stderr to .out file, stdout hidden
-      ./runner/"$script_file" 2> "runner/$error_output" 1> /dev/null
+      bash runner/"$script_file" 2> "runner/$error_output" 1> /dev/null
 
       cd - &> /dev/null || exit
       # shellcheck disable=SC2015
