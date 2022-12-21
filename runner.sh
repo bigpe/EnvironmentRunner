@@ -28,8 +28,8 @@ do
       rm -f "$error_output"
       cd ..
 
-      # Run script, redirect stderr to .out file, stdout hidden
-      bash runner/"$script_file" 2> "runner/$error_output" 1> /dev/null
+      # Run script
+      bash runner/"$script_file"
 
       cd - &> /dev/null || exit
       # shellcheck disable=SC2015
@@ -48,7 +48,7 @@ if [ ${#RUNNER_ENVS[@]} -eq 0 ]; then
   echo -e "${RED}Runners not found${NC}"
 fi
 
-entrypoint=$(env | grep "^RUNNER_[A-Za-z]*_ENTRYPOINT" | awk -F '=' '{print $1}')
+entrypoint=$(env | grep "^RUNNER_ENTRYPOINT" | awk -F '=' '{print $1}')
 
 if test -z "$entrypoint"; then
   echo -e "${RED}Entrypoint not found${NC}"
@@ -58,9 +58,9 @@ fi
 entrypoint_script=$(printenv "$entrypoint")
 # shellcheck disable=SC2001
 short_env=$(echo "$entrypoint" | sed "s/RUNNER_//")
-error_output=$(echo "$short_env.out" | tr '[:upper:]' '[:lower:]')
-rm -f "$error_output"
 cd ..
 echo -e "${PURPLE}[+] $short_env${NC}"
+
 cd $previous_path
+
 bash runner/"$entrypoint_script"
