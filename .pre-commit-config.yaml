@@ -3,6 +3,6 @@ repos:
   hooks:
    - id: create_cherry_pick
      name: Create Cherry Pick
-     entry: "sh cherry_pick.sh"
+     entry: "sh hooks/cherry_pick.sh"
      language: system
      verbose: true
