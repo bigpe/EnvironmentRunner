@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # shellcheck disable=SC2034
-previous_path=`pwd`
+previous_path=$(pwd)
 # shellcheck disable=SC2164
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 # shellcheck disable=SC2164
