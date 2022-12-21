@@ -58,9 +58,11 @@ fi
 entrypoint_script=$(printenv "$entrypoint")
 # shellcheck disable=SC2001
 short_env=$(echo "$entrypoint" | sed "s/RUNNER_//")
-cd ..
+
 echo -e "${PURPLE}[+] $short_env${NC}"
 
-cd $previous_path
+if [[ $(pwd) == *"runner" ]]; then
+    cd ..
+fi
 
 bash runner/"$entrypoint_script"
