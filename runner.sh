@@ -29,13 +29,15 @@ do
       cd ..
 
       # Run script
-      bash runner/"$script_file"
+      bash runner/"$script_file" 2> "runner/$error_output" 1> /dev/null
 
       cd - &> /dev/null || exit
       # shellcheck disable=SC2015
       [[ -s "$error_output" ]] &&
       echo -e "\r${RED}[-] $short_env [Errors]${NC}" ||
-      (echo -e "\r${GREEN}[+] $short_env${NC}" && rm -f "$error_output")
+      (echo -e "\r${GREEN}[+] $short_env${NC}")
+      cat "$error_output"
+      rm -f "$error_output"
     else
       echo -e "${RED}[-] $short_env [Disabled]${NC}"
     fi
