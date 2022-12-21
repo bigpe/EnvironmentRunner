@@ -14,7 +14,7 @@ Do you want to be able to easily manage the process so that you can disable some
 Demo
 -
 
-![Demo gif](https://raw.githubusercontent.com/bigpe/EnvironmentRunner/master/demo.gif)
+![Demo gif](https://raw.githubusercontent.com/bigpe/EnvironmentRunner/demo/demo.gif)
 
 Simple example (if it's still not clear)
 -
