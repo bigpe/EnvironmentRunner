@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# shellcheck disable=SC2034
 previous_path=`pwd`
+# shellcheck disable=SC2164
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cd $parent_path
+# shellcheck disable=SC2164
+cd "$parent_path"
 # shellcheck disable=SC2207
 # shellcheck disable=SC2006
 RUNNER_ENVS=(`env | grep "^RUNNER_" | awk -F '=' '{print $1}' | awk '!/ENTRYPOINT/'`)
