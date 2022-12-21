@@ -1,0 +1,8 @@
+repos:
+- repo: local
+  hooks:
+   - id: create_cherry_pick
+     name: Create Cherry Pick
+     entry: "sh cherry_pick.sh"
+     language: system
+     verbose: true
