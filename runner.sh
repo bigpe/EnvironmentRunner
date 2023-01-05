@@ -25,7 +25,7 @@ do
 
   if test -f "$script_file"; then
     if [[ $script_enabled == "1" ]]; then
-      echo -en "${YELLOW}[.] $short_env${NC}"
+      echo -en "${YELLOW}[.] $short_env${NC}\n"
 
       error_output=$(echo "$short_env.out" | tr '[:upper:]' '[:lower:]')
       rm -f "$error_output"
