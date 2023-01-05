@@ -32,7 +32,7 @@ do
       cd ..
 
       # Run script
-      bash runner/"$script_file" 2> "runner/$error_output" 1> /dev/null
+      bash runner/"$script_file" 2> "runner/$error_output"
 
       cd - &> /dev/null || exit
       # shellcheck disable=SC2015
