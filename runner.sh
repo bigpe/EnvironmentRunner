@@ -25,7 +25,7 @@ do
 
   if test -f "$script_file"; then
     if [[ $script_enabled == "1" ]]; then
-      echo -en "${YELLOW}[.] $short_env${NC}\n"
+      echo -e "${YELLOW}[.] $short_env${NC}"
 
       error_output=$(echo "$short_env.out" | tr '[:upper:]' '[:lower:]')
       rm -f "$error_output"
@@ -37,8 +37,8 @@ do
       cd - &> /dev/null || exit
       # shellcheck disable=SC2015
       [[ -s "$error_output" ]] &&
-      echo -e "\r${RED}[-] $short_env [Errors]${NC}" ||
-      (echo -e "\r${GREEN}[+] $short_env${NC}")
+      echo -e "${RED}[-] $short_env [Errors]${NC}" ||
+      (echo -e "${GREEN}[+] $short_env${NC}")
       cat "$error_output"
       rm -f "$error_output"
     else
